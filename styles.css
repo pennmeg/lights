@@ -1,0 +1,116 @@
+/* ---- Background ---- */
+#container {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-image: url("images/joe-woods-4Zaq5xY5M_c-unsplash.jpg");
+  background-color: #ccc;
+}
+
+footer {
+  background-color: #ccc;
+}
+
+footer p {
+  font-size: 12px;
+  margin: 2;
+  color: #252525;
+}
+/* ---- Switch ---- */
+#toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+/* ---- Neon ---- */
+#sign {
+  padding: 20px 0;
+}
+
+.text {
+  color: white;
+  text-align: center;
+  font-size: 64px;
+  font-family: "Homemade Apple", "Tahoma", cursive;
+}
+
+#first--line {
+  position: relative;
+}
+
+#second--line {
+  position: absolute;
+  display: block;
+  top: 116px;
+  left: 500px;
+}
+
+/* ---- Color Select ---- */
+
+#colors {
+  display: flex;
+}
+select {
+  /* -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; */
+  border: none;
+  background-color: transparent;
+  margin: 0 auto;
+  color: #252525;
+  margin-top: 75px;
+}
+
+input:checked + .slider {
+  background-color: #0fa;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #0fa;
+}
