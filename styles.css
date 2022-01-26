@@ -7,6 +7,7 @@ main {
   background-color: #ccc;
 }
 
+/* ---- Footer and Source ---- */
 footer {
   background-color: #ccc;
 }
@@ -17,6 +18,16 @@ footer p {
   font-size: 12px;
   color: #252525;
 }
+
+#image--source {
+  color: #252525;
+  text-decoration: underline dotted;
+}
+
+#image--source:hover {
+  color: white;
+}
+
 /* ---- Switch ---- */
 #toggle--container {
   position: absolute;
@@ -69,12 +80,14 @@ input:checked + #slider:before {
   transform: translateX(16px);
 }
 
-/* ---- Neon ---- */
+/* ---- Neon Text ---- */
 #sign {
+  margin: 0;
   padding: 20px 0;
 }
 
 .sign--text {
+  display: block;
   font-family: "Homemade Apple", "Tahoma", cursive;
   font-size: 64px;
   text-align: center;
@@ -92,8 +105,11 @@ input:checked + #slider:before {
   left: 500px;
 }
 
-/* ---- Color Select ---- */
+.off {
+  color: #fff;
+}
 
+/* ---- Color Select ---- */
 #colors--container {
   display: flex;
 }
@@ -104,8 +120,4 @@ input:checked + #slider:before {
   background-color: transparent;
   color: #252525;
   border: none;
-}
-
-.off {
-  color: #fff;
 }
