@@ -23,7 +23,7 @@ function toggleLights() {
       neonSign[i].classList.add("off");
     }
 
-    sliderBackround.style.backgroundColor = "#ccc"; // Back to default gray
+    sliderBackround.style.backgroundColor = "#ccc"; // Default gray
   }
 }
 
