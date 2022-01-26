@@ -22,7 +22,7 @@
     <div id="container">
       <div id="toggle">
         <label class="toggle">
-          <input type="checkbox" onchange="toggleLights(this)" />
+          <input id="checkbox" type="checkbox" onchange="toggleLights(this)" />
           <span class="slider"></span>
         </label>
       </div>
@@ -33,11 +33,11 @@
       <div id="colors">
         <select onchange="changeColor(value)">
           <option value="c72c48">Red</option>
-          <option>Orange</option>
-          <option>Yellow</option>
-          <option selected value="0fa">Green</option>
-          <option>Blue</option>
-          <option>Purple</option>
+          <option value="ff5f1f">Orange</option>
+          <option value="fdda0d">Yellow</option>
+          <option value="0bda51">Green</option>
+          <option value="1f51ff">Blue</option>
+          <option selected value="7f00ff">Purple</option>
         </select>
       </div>
     </div>
@@ -49,46 +49,50 @@
     </footer>
   </body>
   <script>
-    function toggleLights(element) {
+    function toggleLights() {
       const text = document.getElementsByClassName("text");
+      const checkbox = document.getElementById("checkbox");
+      const sliderBackround = document.getElementsByClassName("slider")[0];
       const selectOptions = document.getElementsByTagName("select")[0];
       let color = determineColor(selectOptions);
 
-      if (element.checked) {
+      if (checkbox.checked) {
         for (let i = 0; i < text.length; i++) {
           text[
             i
           ].style.textShadow = `0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #${color}, 0 0 82px #${color}, 0 0 92px #${color}, 0 0 102px #${color}, 0 0 151px #${color}`;
           text[i].classList.remove("off");
         }
+        sliderBackround.style.backgroundColor = `#${color}`;
       } else {
         for (let i = 0; i < text.length; i++) {
           text[i].style.textShadow = "none";
           text[i].classList.add("off");
         }
+        sliderBackround.style.backgroundColor = `#ccc`;
       }
     }
 
     function determineColor(selectOptions) {
-      let color = "0fa";
+      let color = "7f00ff";
       for (let i = 0; i < selectOptions.length; i++) {
         if (selectOptions[i].selected) {
           color = selectOptions[i].value;
         }
       }
-      return color || "0fa";
+      return color ?? "7f00ff";
     }
 
     function changeColor(color) {
       const selectOptions = document.getElementsByTagName("select")[0];
       for (let i = 0; i < selectOptions.length; i++) {
-        if (selectOptions[i].selected) {
-          selectOptions[i].removeAttribute("value");
+        if (selectOptions[i].value === color) {
+          selectOptions[i].setAttribute("selected", true);
+        } else {
+          selectOptions[i].setAttribute("selected", false);
         }
-        // if (selectOptions[i].value === color) {
-        //   selectOptions[i].selected = true;
-        // }
       }
+      toggleLights();
     }
   </script>
 </html>
