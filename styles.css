@@ -1,5 +1,5 @@
 /* ---- Background ---- */
-#container {
+main {
   height: 100vh;
   width: 100%;
   background-size: cover;
@@ -18,26 +18,26 @@ footer p {
   color: #252525;
 }
 /* ---- Switch ---- */
-#toggle {
+#toggle--container {
   position: absolute;
   top: 20px;
   right: 20px;
 }
 
-.toggle {
+#toggle {
   position: relative;
   display: inline-block;
   width: 40px;
   height: 24px;
 }
 
-.toggle input {
+#toggle input {
   width: 0;
   height: 0;
   opacity: 0;
 }
 
-.slider {
+#slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -50,7 +50,7 @@ footer p {
   transition: 0.4s;
 }
 
-.slider:before {
+#slider:before {
   position: absolute;
   content: "";
   height: 16px;
@@ -63,7 +63,7 @@ footer p {
   transition: 0.4s;
 }
 
-input:checked + .slider:before {
+input:checked + #slider:before {
   -webkit-transform: translateX(16px);
   -ms-transform: translateX(16px);
   transform: translateX(16px);
@@ -74,7 +74,7 @@ input:checked + .slider:before {
   padding: 20px 0;
 }
 
-.text {
+.sign--text {
   font-family: "Homemade Apple", "Tahoma", cursive;
   font-size: 64px;
   text-align: center;
@@ -94,10 +94,11 @@ input:checked + .slider:before {
 
 /* ---- Color Select ---- */
 
-#colors {
+#colors--container {
   display: flex;
 }
-select {
+
+#colors--select {
   margin: 0 auto;
   margin-top: 75px;
   background-color: transparent;

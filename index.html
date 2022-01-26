@@ -13,19 +13,19 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body style="margin: 0">
-    <div id="container">
-      <div id="toggle">
-        <label class="toggle">
+    <main>
+      <div id="toggle--container">
+        <label id="toggle">
           <input id="checkbox" type="checkbox" onchange="toggleLights()" />
-          <span class="slider"></span>
+          <span id="slider"></span>
         </label>
       </div>
       <div id="sign">
-        <p class="text" id="first line" class="off">it's about to be</p>
-        <p class="text" id="second--line" class="off">legendary</p>
+        <p class="sign--text" id="first--line" class="off">it's about to be</p>
+        <p class="sign--text" id="second--line" class="off">legendary</p>
       </div>
-      <div id="colors">
-        <select onchange="changeColor(value)">
+      <div id="colors--container">
+        <select id="colors--select" onchange="changeColor(value)">
           <option value="c72c48">Red</option>
           <option value="ff5f1f">Orange</option>
           <option value="fdda0d">Yellow</option>
@@ -34,7 +34,7 @@
           <option selected value="7f00ff">Purple</option>
         </select>
       </div>
-    </div>
+    </main>
     <footer>
       <p>
         Background image from
@@ -44,10 +44,10 @@
   </body>
   <script>
     function toggleLights() {
-      const text = document.getElementsByClassName("text");
+      const text = document.getElementsByClassName("sign--text");
       const checkbox = document.getElementById("checkbox");
-      const sliderBackround = document.getElementsByClassName("slider")[0];
-      const selectOptions = document.getElementsByTagName("select")[0];
+      const sliderBackround = document.getElementById("slider");
+      const selectOptions = document.getElementById("colors--select");
       let color = determineColor(selectOptions);
 
       if (checkbox.checked) {
@@ -63,7 +63,7 @@
           text[i].style.textShadow = "none";
           text[i].classList.add("off");
         }
-        sliderBackround.style.backgroundColor = `#ccc`;
+        sliderBackround.style.backgroundColor = "#ccc";
       }
     }
 
@@ -78,7 +78,7 @@
     }
 
     function changeColor(color) {
-      const selectOptions = document.getElementsByTagName("select")[0];
+      const selectOptions = document.getElementById("colors--select");
       for (let i = 0; i < selectOptions.length; i++) {
         if (selectOptions[i].value === color) {
           selectOptions[i].setAttribute("selected", true);
